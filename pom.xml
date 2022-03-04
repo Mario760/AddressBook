@@ -22,12 +22,6 @@
 				<spring.boot.mainclass>simpleSpringMVC.AccessingDataJpaApplication</spring.boot.mainclass>
 			</properties>
 		</profile>
-		<profile>
-			<id>profile2</id>
-			<properties>
-				<spring.boot.mainclass>simpleSpringMVC.TestingWebApplication</spring.boot.mainclass>
-			</properties>
-		</profile>
 	</profiles>
 	<dependencies>
 		<dependency>
