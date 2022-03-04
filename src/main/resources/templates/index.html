@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Main Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+    <body>
+    <script>
+        function viewFunction() {
+            var action = 'addressBook/'+document.getElementsByName("id")[0].value;
+            var form = document.getElementById('view-form');
+            form.action = action;
+        }
+        function addBuddyInfo(){
+            var action = 'createBuddy/'+document.getElementsByName("add_id")[0].value;
+            var form = document.getElementById('add-buddy');
+            form.action = action;
+        }
+    </script>
+        <h1>Welcome to the AddressBook system</h1>
+        <ul>
+            <li>
+                <form id="view-form" method="get" onsubmit="viewFunction()">
+                    Address Book id:<input type="nuber" name="id"/>
+                    <input type="submit" value="View Address Book" />
+                </form>
+            </li>
+            <li>
+                <form id="add-buddy" method="get" onsubmit="addBuddyInfo()">
+                    Address Book id:<input type="nuber" name="add_id"/>
+                    <input type="submit" value="Create new Buddy Info" />
+                </form>
+            </li>
+        </ul>
+    </body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Create New Buddy</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <form th:if="${validId}" th:action="@{'/addressBook/'+${id}}" method="post">
+        <p>Name:<input type="text" name="name"/></p>
+        <p>Phone Number:<input type="text" name="phoneNumber"/></p>
+        <p><input type="submit" value="Submit BuddyInfo"/><input type="reset" value="Reset"/></p>
+    </form>
+    <h1 th:if="not ${validId}"> Invalid AddressBook Id</h1>
+</body>
+</html>

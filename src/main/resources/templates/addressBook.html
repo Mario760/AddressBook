@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+  <title>AddressBook</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+  <table id="dataTable" th:if="${validId}" border="1">
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Telephone</th>
+      <th>Option</th>
+    </tr>
+    <tr th:each="buddyInfo : ${addressBook.buddyInfos}">
+      <td th:text="${buddyInfo.id}"></td>
+      <td th:text="${buddyInfo.name}"></td>
+      <td th:text="${buddyInfo.phoneNumber}"></td>
+      <td>
+        <a onclick="deleteBuddy" th:href="@{'/addressBook/'+${addressBook.id}+'/'+${buddyInfo.id}}">delete</a>
+      </td>
+    </tr>
+  </table>
+
+  <form id="deleteForm" method="post">
+    <input type="hidden" name="_method" value="delete"/>
+  </form>
+
+  <script type="text/javascript" th:src="@{/static/vue.js}"></script>
+  <script type="text/javascript">
+    var vue = new Vue({
+      el:"#dataTable",
+      methods:{
+        deleteBuddy:function (event){
+          var deleteForm = document.getElementById("deleteForm");
+          deleteForm.action = event.target.href;
+          deleteForm.submit();
+          event.preventDefault();
+        }
+      }
+    });
+  </script>
+
+  <h1 th:if="not ${validId}"> Invalid AddressBook Id</h1>
+</body>
+</html>

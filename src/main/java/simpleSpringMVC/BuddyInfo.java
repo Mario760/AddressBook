@@ -32,6 +32,18 @@ public class BuddyInfo implements Serializable {
         return phoneNumber;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPhoneNumber(long phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
     @Override
     public String toString(){
         return String.format("BuddyInfo[id=%d, name='%s, phone number=%d]",id, name, phoneNumber);
